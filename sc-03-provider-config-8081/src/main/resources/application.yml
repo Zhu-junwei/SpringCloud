@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: depart-provider
+  profiles:
+    active: dev
+  config:
+    import:
+     - optional:nacos:${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+  cloud:
+    nacos:
+      # server-addr: nacos-local:8848
+      config:
+        server-addr: nacos-local:8848
+        file-extension: yaml
+        username: nacos
+        password: nacos
