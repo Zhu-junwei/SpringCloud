@@ -1,0 +1,132 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: depart-consumer # 微服务名称
+  data:
+    redis:
+      host: redis
+      port: 6379
+  cloud:
+    gateway:
+      routes:
+        - id: customize_filter
+          uri: http://localhost:8080
+          predicates:
+            - Path=/**
+          filters:
+            - AddHeader=new-color, red
+            #      default-filters:
+            #        - name: CircuitBreaker
+            #          args:
+            #            name: myCircuitBreaker
+            #            fallbackUri: forward:/fb
+            #      routes:
+            #        - id: requestratelimiter_route
+            #          uri: http://localhost:8080
+            #          predicates:
+            #            - Path=/**
+            #          filters:
+            #            - name: RequestRateLimiter
+            #              args:
+            #                key-resolver: "#{@ipKeyResolver}"
+            #                redis-rate-limiter.replenishRate: 2
+            #                redis-rate-limiter.burstCapacity: 5
+            #                redis-rate-limiter.requestedTokens: 1
+
+            #        - id: rewritepath_route
+            #          uri: http://localhost:8080
+            #          predicates:
+            #            - Path=/a/**
+            #          filters:
+            #            - RewritePath=/a, /info
+
+            #        - id: nameRoot
+            #          uri: http://localhost:8080
+            #          predicates:
+            #            - Path=/**
+            #          filters:
+            #            - StripPrefix=2
+
+            #        - id: prefixpath_route
+            #          uri: http://localhost:8080
+            #          predicates:
+            #            - Path=/**
+            #          filters:
+            #            - PrefixPath=/info
+
+            #        - id: circuitbreaker_route
+            #          uri: http://localhost:8080
+            #          predicates:
+            #            - Path=/**
+            #          filters:
+            #            - name: CircuitBreaker
+            #              args:
+            #                name: myCircuitBreaker
+            #                fallbackUri: forward:/fb
+
+            #        - id: add_response_header_route
+            #          uri: http://localhost:8080
+            #          predicates:
+            #            - Path=/**
+            #          filters:
+            #            - AddResponseHeader=X-Response-Color, Blue
+            #        - id: add_request_parameter_route
+            #          uri: http://localhost:8080
+            #          predicates:
+            #            - Path=/**
+            #          filters:
+            #            - AddRequestParameter=color, blue
+            #            - AddRequestParameter=color, red
+            #        - id: add_request_header_route
+            #          uri: http://localhost:8080
+            #          predicates:
+            #            - Path=/**
+            #          filters:
+            #            - AddRequestHeader=X-Request-Color, blue
+            #            - AddRequestHeadersIfNotPresent=X-Request-Color-1:blue,X-Request-Color-2:green
+            #            - AddRequestHeadersIfNotPresent=X-Request-Color-3:red
+
+            # 自定义断言工厂
+            #        - id: custom_auth_route
+            #          uri: http://localhost:8081
+            #          predicates:
+            #            - Token=123
+            #        - id: custom_auth_route
+            #          uri: http://localhost:8081
+            #          predicates:
+            #            - Auth=zhangsan, 123
+            #        - id: bd_route
+            #          uri: https://baidu.com
+            #          predicates:
+            #            - Path=/bd
+            #        - id: tb_route
+            #          uri: https://taobao.com
+            #          predicates:
+            #            - Path=/tb
+            #- id: bd_route
+            #  uri: https://jd.com
+            #  predicates:
+            #    - Path=/jd
+            #- id: my_route
+            #uri: http://127.0.0.1:8081/
+            #predicates:
+            #- After=2023-01-20T17:42:47.789-07:00[Asia/Shanghai]  # 在这之后可以访问
+            #- Before=2025-01-20T17:42:47.789-07:00[Asia/Shanghai]  # 在这之前可以访问
+            #- Between=2023-01-10T17:42:47.789-07:00[Asia/Shanghai],2024-01-20T17:42:47.789-07:00[Asia/Shanghai]  # 在这之间可以访问
+            # - Cookie=city, shanghai   # 存在cookie city=shanghai
+            # - Header=X-Request-Id, \d+   # X-Request-Id是数字
+            # - Host=aaa.com:9001,localhost:9001   # 指定域名才能访问
+            # - Host=GET,POST   # 指定请求方式
+            # - Query=green   # 查询路由断言,路径中有green 也可以使用正则匹配gree.
+        #- id: weight_high # 权重路由，80%访问8080，20%访问8081
+        #  uri: http://localhost:8080
+        #  predicates:
+        #    - Weight=group1, 8
+        #- id: weight_low
+        #  uri: http://localhost:8081
+        #  predicates:
+        #    - Weight=group1, 2
+
+

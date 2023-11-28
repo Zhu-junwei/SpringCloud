@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 /**
  * 系统信息
  * @author 朱俊伟
- * @date 2023/11/21 23:55
+ * @since 2023/11/21 23:55
  */
 @Service
 @RefreshScope

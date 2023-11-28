@@ -1,0 +1,24 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: depart-gateway # 微服务名称
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos-local:8848 # nacos注册中心地址
+        username: nacos # 用户名密码
+        password: nacos
+    gateway:
+      # 开启Gateway在注册中新进行服务发现的功能，默认为false
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: my_route
+          uri: lb://depart-consumer
+          predicates:
+            - Path=/**
+
+

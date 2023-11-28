@@ -1,0 +1,1 @@
+gateway断言工厂API式

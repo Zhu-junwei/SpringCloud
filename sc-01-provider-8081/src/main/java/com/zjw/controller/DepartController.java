@@ -4,6 +4,7 @@ package com.zjw.controller;
 import com.zjw.domain.Depart;
 import com.zjw.service.IDepartService;
 import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -63,4 +64,9 @@ public class DepartController {
         return departService.list();
     }
 
+    @GetMapping("/header")
+    public String getHeader(HttpServletRequest  request){
+        String header = request.getHeader("Authorization");
+        return header;
+    }
 }

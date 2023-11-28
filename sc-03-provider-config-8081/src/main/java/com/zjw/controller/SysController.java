@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 系统信息
  * @author 朱俊伟
- * @date 2023/11/21 23:53
+ * @since 2023/11/21 23:53
  */
 @RestController
 @RequestMapping("/sys")

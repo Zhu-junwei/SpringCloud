@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: depart-consumer # 微服务名称
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos-local:8848 # nacos注册中心地址
+        username: nacos # 用户名密码
+        password: nacos
+    openfeign:
+      client:
+        config:
+          default:  # 这是一个map，设置默认配置
+            connect-timeout: 5000 # 连接超时时间
+            read-timeout: 5000  # 响应超时时间
+          depart-provider:  # 指定服务的设置
+            connect-timeout: 4000 # 连接超时时间
+            read-timeout: 4000  # 响应超时时间
+
