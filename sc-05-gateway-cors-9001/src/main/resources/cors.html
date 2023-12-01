@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>cors模拟</title>
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function accessDepart() {
+            $.get("http://localhost:8081/depart/list", function(data){
+                console.log(data);
+                alert(data);
+            });
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="跨域访问1" onclick="accessDepart()"/>
+</body>
+</html>

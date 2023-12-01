@@ -1,0 +1,22 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: depart-gateway # 微服务名称
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+      routes:
+        - id: my_route
+          uri: http://localhost:8081
+          predicates:
+            - Path=/**
+
+

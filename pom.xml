@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>SpringCloud</artifactId>
+    <groupId>com.zjw</groupId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>sc-01-consumer-8080</module>
+        <module>sc-01-provider-8081</module>
+        <module>sc-02-consumer-nacos-8080</module>
+        <module>sc-02-provider-nacos-8081</module>
+        <module>sc-03-provider-config-8081</module>
+        <module>sc-04-consumer-openfeign-8080</module>
+        <module>sc-04-provider-openfeign-8081</module>
+        <module>sc-05-consumer-gateway-api-9000</module>
+        <module>sc-05-consumer-gateway-config-9001</module>
+        <module>sc-05-gateway-cors-9001</module>
+        <module>sc-05-gateway-nacos-9001</module>
+        <module>sc-05-showinfo-8080</module>
+        <module>sc-06-consumer-sentinel-degrade-openfeign-8080</module>
+        <module>sc-06-sentinel-degrade-class-8080</module>
+        <module>sc-06-sentinel-degrade-method-8080</module>
+        <module>sc-06-sentinel-circuitbreaker-8080</module>
+    </modules>
+
+</project>

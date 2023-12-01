@@ -1,0 +1,1 @@
+sentinel openfeign降级
