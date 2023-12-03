@@ -54,7 +54,7 @@ public class DepartController {
     /**
      * 根据id查询部门
      */
-    @SentinelResource(fallback = "getFallBack")
+    @SentinelResource(value = "get", fallback = "getFallBack")
     @GetMapping("/get/{id}")
     public Depart get(@PathVariable Long id) {
         return restTemplate.getForObject(PROVIDER_URL + "/get/" + id, Depart.class);
