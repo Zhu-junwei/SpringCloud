@@ -1,1 +1,1 @@
-sentinel 方法降级
+sentinel 熔断规则，方法降级
