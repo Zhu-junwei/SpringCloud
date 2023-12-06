@@ -28,6 +28,7 @@
         <module>sc-06-sentinel-flowrule-8081</module>
         <module>sc-06-sentinel-authrule-8080</module>
         <module>sc-06-sentinel-paramrule-8080</module>
+        <module>sc-06-sentinel-gateway-router-9000</module>
     </modules>
 
 </project>

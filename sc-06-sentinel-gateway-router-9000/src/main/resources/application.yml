@@ -1,0 +1,38 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: sentinel-gateway # 微服务名称
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos-local:8848 # nacos注册中心地址
+        username: nacos # 用户名密码
+        password: nacos
+    gateway:
+      routes:
+        - id: get_route
+          uri: lb://depart-consumer
+          predicates:
+            - Path=/depart/get/**
+        - id: list
+          uri: lb://depart-consumer
+          predicates:
+            - Path=/depart/list
+    sentinel: # sentinel配置
+      eager: true # 饥饿加载，默认false
+      filter:
+        enabled: false  # 若在网关流控控制台上看到了 URL 资源
+      transport:
+        port: 8719  # sentinel内部启动的http服务
+        dashboard: localhost:8888 # sentinel服务
+#      scg:
+#        fallback:
+#          mode: response
+#          content-type: 'application/json'
+#          response-status: 429
+#          response-body: '{"code":"429","msg":"访问量过大，稍后请重试"}'
+
+#          mode: redirect
+#          redirect: https://baidu.com
