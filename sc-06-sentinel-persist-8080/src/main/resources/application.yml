@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: depart-consumer # 微服务名称
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos-local:8848 # nacos注册中心地址
+        username: nacos # 用户名密码
+        password: nacos
+    sentinel:   # sentinel配置
+      eager: true # 饥饿加载，默认false
+      transport:
+        port: 8719  # sentinel内部启动的http服务
+        dashboard: localhost:8888 # sentinel服务
+      # 设置流控规则从nacos配置中心获取
+      datasource:
+        flows:
+          nacos:
+            server-addr: ${spring.cloud.nacos.discovery.server-addr}
+            username: ${spring.cloud.nacos.discovery.username}
+            password: ${spring.cloud.nacos.discovery.password}
+            rule-type: flow
+            data-id: ${spring.application.name}-flow-rules
+            data-type: json   # 默认为json
+            group-id: SENTINEL_GROUP
+        degrades:
+          nacos:
+            server-addr: ${spring.cloud.nacos.discovery.server-addr}
+            username: ${spring.cloud.nacos.discovery.username}
+            password: ${spring.cloud.nacos.discovery.password}
+            rule-type: degrade
+            data-id: ${spring.application.name}-degrade-rules
+            data-type: json   # 默认为json
+            group-id: SENTINEL_GROUP
