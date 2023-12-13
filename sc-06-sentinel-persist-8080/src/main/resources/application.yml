@@ -35,3 +35,30 @@ spring:
             data-id: ${spring.application.name}-degrade-rules
             data-type: json   # 默认为json
             group-id: SENTINEL_GROUP
+        params:
+          nacos:
+            server-addr: ${spring.cloud.nacos.discovery.server-addr}
+            username: ${spring.cloud.nacos.discovery.username}
+            password: ${spring.cloud.nacos.discovery.password}
+            rule-type: param_flow
+            data-id: ${spring.application.name}-param-rules
+            data-type: json   # 默认为json
+            group-id: SENTINEL_GROUP
+        authorities:
+          nacos:
+            server-addr: ${spring.cloud.nacos.discovery.server-addr}
+            username: ${spring.cloud.nacos.discovery.username}
+            password: ${spring.cloud.nacos.discovery.password}
+            rule-type: authority
+            data-id: ${spring.application.name}-authority-rules
+            data-type: json   # 默认为json
+            group-id: SENTINEL_GROUP
+        system:
+          nacos:
+            server-addr: ${spring.cloud.nacos.discovery.server-addr}
+            username: ${spring.cloud.nacos.discovery.username}
+            password: ${spring.cloud.nacos.discovery.password}
+            rule-type: system
+            data-id: ${spring.application.name}-system-rules
+            data-type: json   # 默认为json
+            group-id: SENTINEL_GROUP

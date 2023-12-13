@@ -30,6 +30,7 @@
         <module>sc-06-sentinel-paramrule-8080</module>
         <module>sc-06-sentinel-gateway-router-9000</module>
         <module>sc-06-sentinel-persist-8080</module>
+        <module>sc-07-seata-nacos-openfeign</module>
     </modules>
 
 </project>
