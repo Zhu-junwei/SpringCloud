@@ -38,7 +38,7 @@ public class IBusinessServiceImpl implements IBusinessService {
         storageService.deduct(commodityCode, count);
 
         //演示抛出异常后是否回滚
-        int a = 1/0;
+//        int a = 1/0;
 
         // 2. 创建订单
         Order order = Order.builder()
