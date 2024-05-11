@@ -27,7 +27,7 @@ mybatis-plus:
       logic-delete-value: 1 # 已经逻辑删除的记录该字段值
       logic-not-delete-value: 0 # 未被逻辑删除的记录该字段值
   configuration:
-    # mybatis二级缓存，默认为true，开启
+    # 全局启用或禁用在此配置下任何映射器中配置的任何缓存。默认为true。
     cache-enabled: false
     # 是否开启自动驼峰命名规则，默认为true，开启
     map-underscore-to-camel-case: true
