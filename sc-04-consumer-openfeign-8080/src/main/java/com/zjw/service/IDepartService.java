@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
+ * 使用Feign 客户端，
+ * 声明一个 Feign 客户端，名为 "depart-provider"，用于调用 "depart-provider" 服务
+ * value：指定要调用的服务名称，通常是服务在服务注册中心
+ * path：指定调用服务的基础路径，在请求 URL 中会自动添加这个路径
+ *
  * @author 朱俊伟
  * @since 2023/11/22 12:20
  */

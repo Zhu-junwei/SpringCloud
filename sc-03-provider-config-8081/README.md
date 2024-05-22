@@ -19,11 +19,6 @@ spring:
       - optional:nacos:${spring.application.name}.${spring.cloud.nacos.config.file-extension}
   cloud:
     nacos:
-      config:
-        file-extension: yaml
-        server-addr: nacos-local:8848 # nacos注册中心地址
-        username: nacos # 用户名密码
-        password: nacos
       discovery:
         server-addr: nacos-local:8848 # nacos注册中心地址
         username: nacos # 用户名密码
@@ -51,6 +46,4 @@ mybatis-plus:
   # Mapper 所对应的 XML 文件位置，默认为“classpath*:/mapper/**/*.xml”
   mapper-locations:
     - classpath*:/mapper/**/*.xml
-
-
 ```
