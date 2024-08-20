@@ -28,7 +28,7 @@ public interface IDepartService {
      * 删除部门
      */
     @DeleteMapping("/delete/{id}")
-    boolean remove(@PathVariable Long id);
+    boolean remove(@PathVariable("id") Long id);
 
     /**
      * 更新部门
@@ -40,7 +40,7 @@ public interface IDepartService {
      * 根据id查询部门
      */
     @GetMapping("/get/{id}")
-    Depart get(@PathVariable Long id);
+    Depart get(@PathVariable("id") Long id);
 
     /**
      * 查询所有部门

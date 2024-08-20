@@ -25,7 +25,7 @@ public class AuthRoutePredicateFactory extends AbstractRoutePredicateFactory<Aut
     public static final String PASS_WORD_KEY = "password";
 
     public AuthRoutePredicateFactory() {
-        super(AuthRoutePredicateFactory.Config.class);
+        super(Config.class);
     }
 
 
@@ -33,7 +33,7 @@ public class AuthRoutePredicateFactory extends AbstractRoutePredicateFactory<Aut
      * 认证校验逻辑
      */
     @Override
-    public Predicate<ServerWebExchange> apply(AuthRoutePredicateFactory.Config config) {
+    public Predicate<ServerWebExchange> apply(final Config config) {
         return serverWebExchange -> {
             // 获取到请求中的所有header
             HttpHeaders headers = serverWebExchange.getRequest().getHeaders();
